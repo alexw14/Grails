@@ -17,10 +17,30 @@ app.use(cookieParser());
 // Models
 const { User } = require('./models/user');
 const { Brand } = require('./models/brand');
+const { Category } = require('./models/category');
 
 // Middlewares
 const { auth } = require('./middleware/auth');
 const { admin } = require('./middleware/admin');
+
+// Category
+app.post('/api/products/categories', auth, admin, (req, res) => {
+  const category = new Category(req.body);
+  category.save((err, doc) => {
+    if (err) return req.json({ success: false, err });
+    res.status(200).json({
+      success: true,
+      category: doc
+    });
+  });
+});
+
+app.get('/api/products/categories', (req, res) => {
+  Category.find({}, (err, categories) => {
+    if (err) return res.status(400).send(err);
+    res.status(200).send(categories)
+  })
+})
 
 // Brand
 app.post('/api/products/brands', auth, admin, (req, res) => {
