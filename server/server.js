@@ -40,20 +40,54 @@ app.get('/api/products/categories', (req, res) => {
   Category.find({}, (err, categories) => {
     if (err) return res.status(400).send(err);
     res.status(200).send(categories);
-  })
-})
+  });
+});
 
 // Products
-app.post('/api/products/shoes', auth, admin, (req, res) => {
+app.get('/api/products/sneakers/collections', (req, res) => {
+  let order = req.query.order ? req.query.order : 'asc';
+  let sortBy = req.query.sortBy ? req.query.sortBy : '_id';
+  let limit = req.query.limit ? parseInt(req.query.limit) : 100;
+  Product.find()
+    .populate('brand')
+    .populate('category')
+    .sort([[sortBy, order]])
+    .limit(limit)
+    .exec((err, docs) => {
+      if (err) return res.status(400).send(err);
+      return res.status(200).send(docs);
+    });
+});
+
+app.get('/api/products/sneakers', (req, res) => {
+  let type = req.query.type;
+  let items = req.query.id;
+  if (type === 'array') {
+    let ids = req.query.id.split(',');
+    items = [];
+    items = ids.map(item => {
+      return mongoose.Types.ObjectId(item)
+    });
+  }
+  Product.find({ '_id': { $in: items } })
+    .populate('brand')
+    .populate('category')
+    .exec((err, docs) => {
+      if (err) return res.status(400).send(err);
+      return res.status(200).send(docs);
+    });
+});
+
+app.post('/api/products/sneakers', auth, admin, (req, res) => {
   const product = new Product(req.body);
   product.save((err, doc) => {
     if (err) return res.json({ success: false, err });
     res.status(200).json({
       success: true,
-      shoes: doc
-    })
-  })
-})
+      sneakers: doc
+    });
+  });
+});
 
 // Brand
 app.post('/api/products/brands', auth, admin, (req, res) => {
@@ -71,8 +105,8 @@ app.get('/api/products/brands', (req, res) => {
   Brand.find({}, (err, brands) => {
     if (err) return res.status(400).send(err);
     res.status(200).send(brands);
-  })
-})
+  });
+});
 
 // Users
 app.get('/api/users/auth', auth, (req, res) => {
