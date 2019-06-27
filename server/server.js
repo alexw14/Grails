@@ -18,6 +18,7 @@ app.use(cookieParser());
 const { User } = require('./models/user');
 const { Brand } = require('./models/brand');
 const { Category } = require('./models/category');
+const { Product } = require('./models/product');
 
 // Middlewares
 const { auth } = require('./middleware/auth');
@@ -38,7 +39,19 @@ app.post('/api/products/categories', auth, admin, (req, res) => {
 app.get('/api/products/categories', (req, res) => {
   Category.find({}, (err, categories) => {
     if (err) return res.status(400).send(err);
-    res.status(200).send(categories)
+    res.status(200).send(categories);
+  })
+})
+
+// Products
+app.post('/api/products/shoes', auth, admin, (req, res) => {
+  const product = new Product(req.body);
+  product.save((err, doc) => {
+    if (err) return res.json({ success: false, err });
+    res.status(200).json({
+      success: true,
+      shoes: doc
+    })
   })
 })
 
