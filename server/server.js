@@ -28,7 +28,7 @@ const { admin } = require('./middleware/admin');
 app.post('/api/products/categories', auth, admin, (req, res) => {
   const category = new Category(req.body);
   category.save((err, doc) => {
-    if (err) return req.json({ success: false, err });
+    if (err) return res.json({ success: false, err });
     res.status(200).json({
       success: true,
       category: doc
