@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MyButton = (props) => {
+const Button = (props) => {
 
   const buttons = () => {
     let template = '';
@@ -28,4 +28,4 @@ const MyButton = (props) => {
   );
 };
 
-export default MyButton;
+export default Button;

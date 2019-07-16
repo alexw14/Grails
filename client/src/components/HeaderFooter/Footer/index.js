@@ -12,7 +12,7 @@ const Footer = () => {
     <footer className="bck_b_dark">
       <div className="container">
         <div className="logo">
-          Orange Box Sneakers
+          BOAT
         </div>
         <div className="wrapper">
           <div className="left">
@@ -55,7 +55,7 @@ const Footer = () => {
                 />
                 <div className="nfo">
                   <div>Email</div>
-                  <div>info@orangeboxsneakers.com</div>
+                  <div>info@boat.com</div>
                 </div>
               </div>
             </div>
