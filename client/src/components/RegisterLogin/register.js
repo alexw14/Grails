@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 
 import FormField from '../utils/Form/formfield';
 import { update, generateData, isFormValid } from '../utils/Form/FormActions';
-import { loginUser } from '../../actions/user_actions';
+import { registerUser } from '../../actions/user_actions';
+import Dialog from '@material-ui/core/Dialog';
 
 class Register extends Component {
 
   state = {
     formError: false,
-    formSuccess: '',
+    formSuccess: false,
     formData: {
       name: {
         element: 'input',
@@ -104,7 +105,25 @@ class Register extends Component {
     let dataToSubmit = generateData(this.state.formData, 'register');
     let formIsValid = isFormValid(this.state.formData, 'register');
     if (formIsValid) {
-      console.log(dataToSubmit);
+      this.props.dispatch(registerUser(dataToSubmit)).then(res => {
+        if (res.payload.success) {
+          this.setState({
+            formError: false,
+            formSuccess: true,
+          });
+          setTimeout(() => {
+            this.props.history.push('/register-login')
+          }, 3000)
+        } else {
+          this.setState({
+            formError: true
+          })
+        }
+      }).catch(e => {
+        this.setState({
+          formError: true
+        })
+      })
     } else {
       this.setState({
         formError: true
@@ -172,6 +191,12 @@ class Register extends Component {
             </div>
           </div>
         </div>
+        <Dialog open={this.state.formSuccess}>
+          <div className="dialog_alert">
+            <div>Congratulations!</div>
+            <div>You will be redirected to the login in a couple of seconds...</div>
+          </div>
+        </Dialog>
       </div>
     );
   }
