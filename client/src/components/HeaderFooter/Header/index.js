@@ -73,7 +73,6 @@ class Header extends Component {
         {item.name}
       </div>
       :
-
       <Link to={item.linkTo} key={idx}>
         {item.name}
       </Link>
