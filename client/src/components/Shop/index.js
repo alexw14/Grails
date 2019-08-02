@@ -48,8 +48,21 @@ class Shop extends Component {
       let priceValues = this.handlePrice(filters);
       newFilters[category] = priceValues;
     }
+    this.showFilteredResult(newFilters);
     this.setState({
       filters: newFilters
+    });
+  }
+
+  showFilteredResult = (filters) => {
+    this.props.dispatch(getProductsToShop(
+      0,
+      this.state.limit,
+      filters
+    )).then(() => {
+      this.setState({
+        skip: 0
+      })
     });
   }
 
