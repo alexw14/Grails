@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PageTopSection from '../utils/pageTopSection';
+import LoadMoreCards from './loadMoreCards';
 
 import { connect } from 'react-redux';
 import { getBrands, getCategories, getProductsToShop } from '../../actions/products_actions';
@@ -98,7 +99,20 @@ class Shop extends Component {
 
             </div>
             <div className="right">
-              Right
+              <div className="shop_options">
+                <div className="shop_grids clear">
+                  Grids
+                </div>
+              </div>
+              <div>
+                <LoadMoreCards
+                  grid={this.state.grid}
+                  limit={this.state.limit}
+                  size={products.toShopSize}
+                  products={products.toShop}
+                  loadMore={() => console.log('load more')}
+                />
+              </div>
             </div>
           </div>
         </div>
