@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PageTopSection from '../utils/pageTopSection';
 
 import { connect } from 'react-redux';
-import { getBrands, getCategories } from '../../actions/products_actions';
+import { getBrands, getCategories, getProductsToShop } from '../../actions/products_actions';
 import { price } from '../utils/Form/fixed_categories';
 import CollapsibleCheckbox from '../utils/collapsibleCheckbox';
 import CollapsibleRadio from '../utils/collapsibleRadio';
@@ -23,6 +23,11 @@ class Shop extends Component {
   componentDidMount() {
     this.props.dispatch(getBrands());
     this.props.dispatch(getCategories());
+    this.props.dispatch(getProductsToShop(
+      this.state.skip,
+      this.state.limit,
+      this.state.filters
+    ));
   }
 
   handlePrice = (value) => {
