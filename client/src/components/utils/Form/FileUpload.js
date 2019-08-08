@@ -8,16 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 class FileUpload extends Component {
-  // constructor() {
-  //   super();
-  //   this.onDrop = (files) => {
-  //     this.setState({ files })
-  //   };
-  //   this.state = {
-  //     files: [],
-  //     uploading: false
-  //   };
-  // }
+
   state = {
     uploadedFiles: [],
     uploading: false
@@ -33,8 +24,6 @@ class FileUpload extends Component {
     };
     formData.append("file", files[0]);
     axios.post('/api/users/uploadimage', formData, config).then(response => {
-      console.log('response data')
-      console.log(response.data)
       this.setState({
         uploading: false,
         uploadedFiles: [
@@ -47,7 +36,7 @@ class FileUpload extends Component {
     });
   }
 
-  handleRemoveImage = () => {
+  handleRemoveImage = (id) => {
 
   }
 
@@ -66,6 +55,15 @@ class FileUpload extends Component {
       </div>
     ))
   )
+
+  static getDerivedStateFromProps(props, state) {
+    if (props.reset) {
+      return state = {
+        uploadedFiles: []
+      }
+    }
+    return null;
+  }
 
   render() {
 
