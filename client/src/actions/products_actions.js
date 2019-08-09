@@ -7,7 +7,8 @@ import {
   GET_PRODUCTS_BY_CATEGORIES,
   GET_PRODUCTS_TO_SHOP,
   ADD_PRODUCT,
-  CLEAR_PRODUCT
+  CLEAR_PRODUCT,
+  ADD_BRAND
 } from './types';
 
 import { PRODUCT_SERVER } from '../components/utils/misc';
@@ -78,5 +79,19 @@ export function clearProduct() {
   return {
     type: CLEAR_PRODUCT,
     payload: ''
+  }
+}
+
+export function addBrand(dataToSubmit, existingBrands) {
+  const request = axios.post(`${PRODUCT_SERVER}/brands`, dataToSubmit).then(res => {
+    let brands = [...existingBrands, res.data.brand];
+    return {
+      success: res.data.success,
+      brands
+    }
+  });
+  return {
+    type: ADD_BRAND,
+    payload: request
   }
 }
