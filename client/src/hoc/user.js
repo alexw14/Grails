@@ -27,7 +27,7 @@ const adminLinks = [
     linkTo: '/admin/add-product'
   },
   {
-    name: 'Manage Category',
+    name: 'Management',
     linkTo: '/admin/manage-category'
   }
 ]

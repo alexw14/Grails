@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FormField from '../../utils/Form/formfield';
-import { update, generateData, isFormValid, populateOptionFields, resetFields } from '../../utils/Form/FormActions';
+import { update, generateData, isFormValid, resetFields } from '../../utils/Form/FormActions';
 import { getBrands, addBrand } from '../../../actions/products_actions';
 
 class ManageBrand extends Component {
@@ -64,7 +64,6 @@ class ManageBrand extends Component {
     let existingBrands = this.props.products.byBrands;
     if (formIsValid) {
       this.props.dispatch(addBrand(dataToSubmit, existingBrands)).then(response => {
-        console.log(response)
         if (response.payload.success) {
           this.handleResetFields();
         } else {
