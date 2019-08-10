@@ -11,3 +11,5 @@ export const ADD_PRODUCT = 'add_product';
 export const CLEAR_PRODUCT = 'clear_product';
 export const ADD_BRAND = 'add_brand';
 export const ADD_CATEGORY = 'add_category';
+export const GET_PRODUCT_DETAIL = 'get_product_detail';
+export const CLEAR_PRODUCT_DETAIL = 'clear_product_detail';

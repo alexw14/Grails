@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FormField from '../../utils/Form/formfield';
-import { update, generateData, isFormValid, populateOptionFields, resetFields } from '../../utils/Form/FormActions';
+import { update, generateData, isFormValid, resetFields } from '../../utils/Form/FormActions';
 import { getCategories, addCategory } from '../../../actions/products_actions';
 
 class ManageCategories extends Component {

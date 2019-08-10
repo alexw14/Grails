@@ -9,7 +9,9 @@ import {
   ADD_PRODUCT,
   CLEAR_PRODUCT,
   ADD_BRAND,
-  ADD_CATEGORY
+  ADD_CATEGORY,
+  GET_PRODUCT_DETAIL,
+  CLEAR_PRODUCT_DETAIL
 } from './types';
 
 import { PRODUCT_SERVER } from '../components/utils/misc';
@@ -108,5 +110,22 @@ export function addCategory(dataToSubmit, existingCategories) {
   return {
     type: ADD_CATEGORY,
     payload: request
+  }
+}
+
+export function getProductDetail(id) {
+  const request = axios.get(`${PRODUCT_SERVER}/sneakers?id=${id}&type=single`).then(res => {
+    return res.data[0]
+  });
+  return {
+    type: GET_PRODUCT_DETAIL,
+    payload: request
+  }
+}
+
+export function clearProductDetail() {
+  return {
+    type: CLEAR_PRODUCT_DETAIL,
+    payload: ''
   }
 }
