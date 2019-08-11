@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import UserLayout from '../../hoc/user';
 import UserProductBlock from '../utils/User/productBlock';
-import { getCartItems } from '../../actions/user_actions';
+import { getCartItems, removeCartItem } from '../../actions/user_actions';
 
 class UserCart extends Component {
 
@@ -23,17 +23,17 @@ class UserCart extends Component {
           cartItems.push(item.id)
         });
         this.props.dispatch(getCartItems(cartItems, userCart)).then(() => {
-          if (this.props.user.cartDetails.length > 0) {
-            this.calculateTotalPrice(this.props.user.cartDetails);
+          if (this.props.user.cartDetail.length > 0) {
+            this.calculateTotalPrice(this.props.user.cartDetail);
           }
         });
       }
     }
   }
 
-  calculateTotalPrice = (cartDetails) => {
+  calculateTotalPrice = (cartDetail) => {
     let total = 0;
-    cartDetails.forEach((item) => {
+    cartDetail.forEach((item) => {
       total += parseInt(item.price, 10) * item.quantity
     });
     this.setState({
@@ -42,8 +42,16 @@ class UserCart extends Component {
     });
   }
 
-  handleRemoveItemFromCart = () => {
-
+  handleRemoveItemFromCart = (id) => {
+    this.props.dispatch(removeCartItem(id)).then(() => {
+      if (this.props.user.cartDetail.length <= 0) {
+        this.setState({
+          showTotal: false
+        });
+      } else {
+        this.calculateTotalPrice(this.props.user.cartDetail);
+      }
+    });
   }
 
   showSuccessMessage = () => (

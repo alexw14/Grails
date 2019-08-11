@@ -11,8 +11,8 @@ const UserProductBlock = (props) => {
   }
 
   const renderItems = () => (
-    props.products.cartDetails ?
-      props.products.cartDetails.map(item => (
+    props.products.cartDetail ?
+      props.products.cartDetail.map(item => (
         <div className="user_product_block" key={item._id}>
           <div className="item">
             <div
