@@ -203,10 +203,24 @@ app.get('/api/users/logout', auth, (req, res) => {
       if (err) return res.json({ success: false, err });
       return res.status(200).send({
         success: true
-      })
+      });
     }
   );
 });
+
+app.post('/api/users/updateProfile', auth, (req, res) => {
+  User.findOneAndUpdate(
+    { _id: req.user._id },
+    { $set: req.body },
+    { new: true },
+    (err, doc) => {
+      if (err) return res.json({ success: false, err });
+      return res.status(200).send({
+        success: true
+      });
+    }
+  )
+})
 
 app.post('/api/users/uploadimage', auth, admin, formidable(), (req, res) => {
   cloudinary.uploader.upload(req.files.file.path, (result) => {

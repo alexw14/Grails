@@ -5,6 +5,8 @@ import {
   REGISTER_USER,
   AUTH_USER,
   LOGOUT_USER,
+  UPDATE_PROFILE_USER,
+  CLEAR_UPDATE_PROFILE_USER,
   ADD_TO_CART_USER,
   GET_CART_ITEMS_USER,
   REMOVE_CART_ITEM_USER,
@@ -41,6 +43,21 @@ export function logOutUser() {
   return {
     type: LOGOUT_USER,
     payload: request
+  }
+}
+
+export function updateProfileUser(dataToSubmit) {
+  const request = axios.post(`${USER_SERVER}/updateProfile`, dataToSubmit).then(res => res.data);
+  return {
+    type: UPDATE_PROFILE_USER,
+    payload: request
+  }
+}
+
+export function clearUpdateProfileUser() {
+  return {
+    type: CLEAR_UPDATE_PROFILE_USER,
+    payload: ''
   }
 }
 

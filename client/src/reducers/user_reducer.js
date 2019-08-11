@@ -3,6 +3,8 @@ import {
   REGISTER_USER,
   AUTH_USER,
   LOGOUT_USER,
+  UPDATE_PROFILE_USER,
+  CLEAR_UPDATE_PROFILE_USER,
   ADD_TO_CART_USER,
   GET_CART_ITEMS_USER,
   REMOVE_CART_ITEM_USER,
@@ -28,6 +30,16 @@ export default function (state = {}, action) {
       }
     case LOGOUT_USER:
       return { ...state }
+    case UPDATE_PROFILE_USER:
+      return {
+        ...state,
+        updateUser: action.payload
+      }
+    case CLEAR_UPDATE_PROFILE_USER:
+      return {
+        ...state,
+        updateUser: action.payload
+      }
     case ADD_TO_CART_USER:
       return {
         ...state,
