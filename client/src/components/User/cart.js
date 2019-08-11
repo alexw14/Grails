@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import UserLayout from '../../hoc/user';
 import UserProductBlock from '../utils/User/productBlock';
-import { getCartItems, removeCartItem } from '../../actions/user_actions';
+import { getCartItems, removeCartItem, onSuccessBuy } from '../../actions/user_actions';
+import CheckOutButton from '../utils/checkoutButton';
 
 class UserCart extends Component {
 
@@ -56,7 +57,8 @@ class UserCart extends Component {
 
   showSuccessMessage = () => (
     <div className="cart_success">
-      <div>Thank you for your purchase! We will send you an update as soon as your product is shipped!</div>
+      <div>Thank you for your purchase!</div>
+      <div> We will send you an update as soon as your product is shipped!</div>
     </div>
   )
 
@@ -65,6 +67,17 @@ class UserCart extends Component {
       <div>You have no items in your shopping cart</div>
     </div>
   )
+
+  transactionSuccess = () => {
+    this.props.dispatch(onSuccessBuy({ cartDetail: this.props.user.cartDetail })).then(() => {
+      if (this.props.user.successBuy) {
+        this.setState({
+          showTotal: false,
+          showSuccess: true
+        });
+      }
+    });
+  }
 
   render() {
     return (
@@ -94,7 +107,10 @@ class UserCart extends Component {
           {
             this.state.showTotal ?
               <div className="paypal_button_container">
-                PayPal Button
+                <CheckOutButton
+                  toPay={this.state.total}
+                  onSuccess={() => this.transactionSuccess()}
+                />
               </div>
               : null
           }

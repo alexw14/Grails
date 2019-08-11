@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const formidable = require('express-formidable');
 const cloudinary = require('cloudinary');
+const async = require('async');
 
 const app = express();
 
@@ -286,12 +287,54 @@ app.get('/api/users/removeFromCart', auth, (req, res) => {
       Product.find({ '_id': { $in: array } })
         .populate('brand')
         .populate('category')
-        .exec((err, cartDetail)=> {
+        .exec((err, cartDetail) => {
           return res.status(200).json({
             cartDetail,
             cart
           });
         });
+    }
+  );
+});
+
+app.post('/api/users/successBuy', auth, (req, res) => {
+  let history = [];
+  req.body.cartDetail.forEach((item) => {
+    history.push({
+      dateOfPurchase: Date.now(),
+      id: item._id,
+      name: item.name,
+      brand: item.brand.name,
+      price: item.price,
+      quantity: item.quantity
+    });
+  });
+  User.findOneAndUpdate(
+    { _id: req.user._id }, // find the user
+    { $push: { history: history }, $set: { cart: [] } }, // add history and remove items in cart
+    { new: true }, // get updated document of user
+    (err, user) => {
+      if (err) return res.json({ success: false, err });
+      // update number of sold value in a product
+      let products = [];
+      history.forEach((item) => {
+        products.push({ id: item.id, quantity: item.quantity });
+      });
+      async.eachSeries(products, (item, callback) => {
+        Product.update(
+          { _id: item.id }, // find the product
+          { $inc: { "sold": item.quantity } }, // update
+          { new: false },
+          callback
+        )
+      }, (err) => {
+        if (err) return res.json({ success: false, err })
+        res.status(200).json({
+          success: true,
+          cart: user.cart,
+          cartDetail: []
+        });
+      });
     }
   );
 });
