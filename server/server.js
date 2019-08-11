@@ -10,6 +10,9 @@ const app = express();
 require('dotenv').config();
 
 mongoose.Promise = global.Promise;
+mongoose.set('useCreateIndex', true); // Remove Deprecation Warning
+mongoose.set('useNewUrlParser', true); // Remove Deprecation Warning
+mongoose.set('useFindAndModify', false); // Remove Deprecation Warning
 mongoose.connect(process.env.DATABASE);
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -221,6 +224,46 @@ app.get('/api/users/removeimage', auth, admin, (req, res) => {
   cloudinary.uploader.destroy(public_id, (error, result) => {
     if (error) return res.json({ success: false, error });
     res.status(200).send('Removed');
+  });
+});
+
+app.post('/api/users/addToCart', auth, (req, res) => {
+  User.findOne({ _id: req.user._id }, (err, doc) => {
+    let duplicate = false;
+    doc.cart.forEach((item) => {
+      if (item.id == req.query.productId) {
+        duplicate = true;
+      }
+    });
+    if (duplicate) {
+      User.findOneAndUpdate(
+        { _id: req.user._id, "cart.id": mongoose.Types.ObjectId(req.query.productId) },
+        { $inc: { "cart.$.quantity": 1 } },
+        { new: true },
+        (err, doc) => {
+          if (err) return res.json({ success: false, err });
+          res.status(200).json(doc.cart);
+        }
+      )
+    } else {
+      User.findOneAndUpdate(
+        { _id: req.user._id },
+        {
+          $push: {
+            cart: {
+              id: mongoose.Types.ObjectId(req.query.productId),
+              quantity: 1,
+              date: Date.now()
+            }
+          }
+        },
+        { new: true },
+        (err, doc) => {
+          if (err) return res.json({ success: false, err });
+          res.status(200).json(doc.cart);
+        }
+      );
+    }
   });
 });
 

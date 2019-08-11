@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PageTopSection from '../utils/pageTopSection'
 import { getProductDetail, clearProductDetail } from '../../actions/products_actions';
+import { addToCart } from '../../actions/user_actions';
 import ProductInfo from './ProductInfo';
 import ProductImage from './ProductImage';
 
@@ -14,6 +15,10 @@ class ProductDetail extends Component {
 
   componentWillUnmount() {
     this.props.dispatch(clearProductDetail());
+  }
+
+  handleAddToCart = (id) => {
+    this.props.dispatch(addToCart(id));
   }
 
   showProduct = () => {
