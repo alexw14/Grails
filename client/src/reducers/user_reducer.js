@@ -20,7 +20,7 @@ export default function (state = {}, action) {
     case ADD_TO_CART_USER:
       return { ...state, userData: { ...state.userData, cart: action.payload } }
     case GET_CART_ITEMS_USER:
-      return { ...state, cartDetail: action.payload }
+      return { ...state, cartDetails: action.payload }
     default:
       return state;
   }
