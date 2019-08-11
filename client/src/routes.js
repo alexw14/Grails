@@ -10,6 +10,7 @@ import Shop from './components/Shop';
 import AddProduct from './components/User/Admin/addProduct';
 import Management from './components/User/Admin/Management';
 import ProductDetail from './components/Product';
+import UserCart from './components/User/cart';
 
 import UserDashboard from './components/User';
 
@@ -18,6 +19,7 @@ const Routes = () => {
     <Layout>
       <Switch>
         <Route path="/user/dashboard" exact component={Auth(UserDashboard, true)} />
+        <Route path="/user/cart" exact component={Auth(UserCart, true)} />
         <Route path="/admin/add-product" exact component={Auth(AddProduct, true)} />
         <Route path="/admin/manage-category" exact component={Auth(Management, true)} />
 
