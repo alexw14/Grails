@@ -16,30 +16,38 @@ class ProductDetail extends Component {
     this.props.dispatch(clearProductDetail());
   }
 
+  showProduct = () => {
+    if (this.props.products.productDetail) {
+      return (
+        <div className="product_detail_wrapper">
+          <div className="left">
+            <div style={{ width: '500px' }}>
+              <ProductImage
+                productDetail={this.props.products.productDetail}
+              />
+            </div>
+          </div>
+          <div className="right">
+            <ProductInfo
+              productDetail={this.props.products.productDetail}
+              addToCart={(id) => this.handleAddToCart(id)}
+            />
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <h1 style={{ textAlign: 'center' }}>Sneaker Not Found</h1>
+      )
+    }
+  }
+
   render() {
     return (
       <div>
         <PageTopSection title='Product Detail' />
         <div className="container">
-          {
-            this.props.products.productDetail ?
-              <div className="product_detail_wrapper">
-                <div className="left">
-                  <div style={{ width: '500px' }}>
-                    <ProductImage
-                      productDetail={this.props.products.productDetail}
-                    />
-                  </div>
-                </div>
-                <div className="right">
-                  <ProductInfo
-                    productDetail={this.props.products.productDetail}
-                    addToCart={(id) => this.handleAddToCart(id)}
-                  />
-                </div>
-              </div>
-              : 'Loading'
-          }
+          {this.showProduct()}
         </div>
       </div>
     );

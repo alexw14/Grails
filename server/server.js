@@ -81,7 +81,7 @@ app.get('/api/products/sneakers', (req, res) => {
     .populate('brand')
     .populate('category')
     .exec((err, docs) => {
-      if (err) return res.status(400).send(err);
+      // if (err) return res.status(400).send(err);
       return res.status(200).send(docs);
     });
 });
