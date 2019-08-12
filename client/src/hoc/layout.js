@@ -7,9 +7,7 @@ import { getSiteInfo } from '../actions/site_actions';
 class Layout extends Component {
 
   componentDidMount() {
-    if (Object.keys(this.props.site).length === 0) {
-      this.props.dispatch(getSiteInfo());
-    }
+    this.props.dispatch(getSiteInfo());
   }
 
   render() {
