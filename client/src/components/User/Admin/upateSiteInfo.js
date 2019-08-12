@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FormField from '../../utils/Form/formfield';
 import { update, generateData, isFormValid, populateUserFields } from '../../utils/Form/FormActions';
-import { getSiteInfo } from '../../../actions/site_actions';
+import { getSiteInfo, updateSiteInfo } from '../../../actions/site_actions';
 
 class UpateSiteInfo extends Component {
 
@@ -95,11 +95,19 @@ class UpateSiteInfo extends Component {
     let dataToSubmit = generateData(this.state.formData, 'site-info');
     let formIsValid = isFormValid(this.state.formData, 'site-info');
     if (formIsValid) {
-      console.log(dataToSubmit)
+      this.props.dispatch(updateSiteInfo(dataToSubmit)).then(() => {
+        this.setState({
+          formSuccess: true
+        }, () => {
+          setTimeout(() => {
+            this.setState({ formSuccess: false });
+          }, 3000);
+        });
+      });
     } else {
       this.setState({
         formError: true
-      })
+      });
     }
   }
 

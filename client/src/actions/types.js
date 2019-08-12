@@ -22,3 +22,4 @@ export const ADD_BRAND = 'add_brand';
 export const ADD_CATEGORY = 'add_category';
 
 export const GET_SITE_INFO = 'get_site_info';
+export const UPDATE_SITE_INFO = 'update_site_info';
