@@ -20,3 +20,5 @@ export const ADD_PRODUCT = 'add_product';
 export const CLEAR_PRODUCT = 'clear_product';
 export const ADD_BRAND = 'add_brand';
 export const ADD_CATEGORY = 'add_category';
+
+export const GET_SITE_INFO = 'get_site_info';

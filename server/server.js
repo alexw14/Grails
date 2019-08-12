@@ -31,12 +31,35 @@ const { User } = require('./models/user');
 const { Brand } = require('./models/brand');
 const { Category } = require('./models/category');
 const { Product } = require('./models/product');
+const { Site } = require('./models/site');
 
 // Middlewares
 const { auth } = require('./middleware/auth');
 const { admin } = require('./middleware/admin');
 
-// Category
+//--- Brand Endpoints ---//
+// Add Brand
+app.post('/api/products/brands', auth, admin, (req, res) => {
+  const brand = new Brand(req.body);
+  brand.save((err, doc) => {
+    if (err) return res.json({ success: false, err });
+    res.status(200).json({
+      success: true,
+      brand: doc
+    });
+  });
+});
+
+// Get All Brands
+app.get('/api/products/brands', (req, res) => {
+  Brand.find({}, (err, brands) => {
+    if (err) return res.status(400).send(err);
+    res.status(200).send(brands);
+  });
+});
+
+//--- Category Endpoints ---//
+// Add Category
 app.post('/api/products/categories', auth, admin, (req, res) => {
   const category = new Category(req.body);
   category.save((err, doc) => {
@@ -48,6 +71,7 @@ app.post('/api/products/categories', auth, admin, (req, res) => {
   });
 });
 
+// Get All Categories
 app.get('/api/products/categories', (req, res) => {
   Category.find({}, (err, categories) => {
     if (err) return res.status(400).send(err);
@@ -55,7 +79,8 @@ app.get('/api/products/categories', (req, res) => {
   });
 });
 
-// Products
+//--- Product Endpoints ---//
+// Get Latest Sneakers
 app.get('/api/products/sneakers/collections', (req, res) => {
   let order = req.query.order ? req.query.order : 'asc';
   let sortBy = req.query.sortBy ? req.query.sortBy : '_id';
@@ -71,6 +96,7 @@ app.get('/api/products/sneakers/collections', (req, res) => {
     });
 });
 
+// Get Sneakers By Query
 app.get('/api/products/sneakers', (req, res) => {
   let type = req.query.type;
   let items = req.query.id;
@@ -90,6 +116,7 @@ app.get('/api/products/sneakers', (req, res) => {
     });
 });
 
+// Add Sneaker
 app.post('/api/products/sneakers', auth, admin, (req, res) => {
   const product = new Product(req.body);
   product.save((err, doc) => {
@@ -101,6 +128,7 @@ app.post('/api/products/sneakers', auth, admin, (req, res) => {
   });
 });
 
+// Get Sneakers by Filter Conditions
 app.post('/api/products/shop', (req, res) => {
   let order = req.body.order ? req.body.order : 'desc';
   let sortBy = req.body.sortBy ? req.body.sortBy : '_id';
@@ -134,26 +162,8 @@ app.post('/api/products/shop', (req, res) => {
     })
 });
 
-// Brand
-app.post('/api/products/brands', auth, admin, (req, res) => {
-  const brand = new Brand(req.body);
-  brand.save((err, doc) => {
-    if (err) return res.json({ success: false, err });
-    res.status(200).json({
-      success: true,
-      brand: doc
-    });
-  });
-});
-
-app.get('/api/products/brands', (req, res) => {
-  Brand.find({}, (err, brands) => {
-    if (err) return res.status(400).send(err);
-    res.status(200).send(brands);
-  });
-});
-
-// Users
+//--- Users Endpoints ---//
+// User Authentication
 app.get('/api/users/auth', auth, (req, res) => {
   res.status(200).json({
     isAdmin: req.user.role === 0 ? false : true,
@@ -167,6 +177,7 @@ app.get('/api/users/auth', auth, (req, res) => {
   });
 });
 
+// User Registration
 app.post('/api/users/register', (req, res) => {
   const user = new User(req.body);
   user.save((err, doc) => {
@@ -177,6 +188,7 @@ app.post('/api/users/register', (req, res) => {
   });
 });
 
+// User Login
 app.post('/api/users/login', (req, res) => {
   // find the email
   User.findOne({ 'email': req.body.email }, (err, user) => {
@@ -195,6 +207,7 @@ app.post('/api/users/login', (req, res) => {
   });
 });
 
+// User Logout
 app.get('/api/users/logout', auth, (req, res) => {
   User.findOneAndUpdate(
     { _id: req.user._id },
@@ -208,6 +221,7 @@ app.get('/api/users/logout', auth, (req, res) => {
   );
 });
 
+// User Update Profile
 app.post('/api/users/updateProfile', auth, (req, res) => {
   User.findOneAndUpdate(
     { _id: req.user._id },
@@ -222,6 +236,7 @@ app.post('/api/users/updateProfile', auth, (req, res) => {
   )
 })
 
+// Admin User Uploads Images
 app.post('/api/users/uploadimage', auth, admin, formidable(), (req, res) => {
   cloudinary.uploader.upload(req.files.file.path, (result) => {
     res.status(200).send({
@@ -234,6 +249,7 @@ app.post('/api/users/uploadimage', auth, admin, formidable(), (req, res) => {
     });
 });
 
+// Admin User Removes Images
 app.get('/api/users/removeimage', auth, admin, (req, res) => {
   let public_id = req.query.public_id;
   cloudinary.uploader.destroy(public_id, (error, result) => {
@@ -242,6 +258,7 @@ app.get('/api/users/removeimage', auth, admin, (req, res) => {
   });
 });
 
+// User Adds Products to Cart
 app.post('/api/users/addToCart', auth, (req, res) => {
   User.findOne({ _id: req.user._id }, (err, doc) => {
     let duplicate = false;
@@ -282,6 +299,7 @@ app.post('/api/users/addToCart', auth, (req, res) => {
   });
 });
 
+// User Removes Product From Cart
 app.get('/api/users/removeFromCart', auth, (req, res) => {
   User.findOneAndUpdate(
     { _id: req.user._id },
@@ -311,6 +329,7 @@ app.get('/api/users/removeFromCart', auth, (req, res) => {
   );
 });
 
+// User Successfully Purchases Items in Cart
 app.post('/api/users/successBuy', auth, (req, res) => {
   let history = [];
   req.body.cartDetail.forEach((item) => {
@@ -351,6 +370,15 @@ app.post('/api/users/successBuy', auth, (req, res) => {
       });
     }
   );
+});
+
+//--- Site Endpoints ---//
+// Get Site Info
+app.get('/api/site/siteData', (req, res) => {
+  Site.find({}, (err, site) => {
+    if (err) return res.status(400).send(err);
+    res.status(200).send(site[0].siteInfo)
+  });
 });
 
 const port = process.env.PORT || 3002;

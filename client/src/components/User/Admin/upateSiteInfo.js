@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FormField from '../../utils/Form/formfield';
 import { update, generateData, isFormValid, populateUserFields } from '../../utils/Form/FormActions';
+import { getSiteInfo } from '../../../actions/site_actions';
 
 class UpateSiteInfo extends Component {
 
@@ -102,6 +103,14 @@ class UpateSiteInfo extends Component {
     }
   }
 
+  componentDidMount() {
+    this.props.dispatch(getSiteInfo()).then(() => {
+      const newFormData = populateUserFields(this.state.formData, this.props.site.siteInfo[0]);
+      this.setState({
+        formData: newFormData
+      });
+    });
+  }
 
   render() {
     return (
