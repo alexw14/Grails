@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-
 import { connect } from 'react-redux';
 import { logOutUser } from '../../../actions/user_actions';
 
@@ -55,7 +54,7 @@ class Header extends Component {
   cartLink = (item, idx) => {
     const user = this.props.user.userData;
     return (
-      <div className="cart_link" key={idx}>
+      <div className="cart-link" key={idx}>
         <span>{user.cart ? user.cart.length : 0}</span>
         <Link to={item.linkTo} key={idx}>
           {item.name}
@@ -66,7 +65,7 @@ class Header extends Component {
 
   defaultLink = (item, idx) => (
     item.name === 'Log Out' ?
-      <div className="log_out_link"
+      <div className="log-out-link"
         key={idx}
         onClick={() => this.handleLogOut()}
       >
@@ -105,19 +104,21 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="bck_b_light">
+      <header className="background-white">
         <div className="container">
-          <div className="left">
-            <div className="logo">
-              BOAT
+          <div className="flexbox-container" style={{ flexDirection: 'row' }}>
+            <div className="left-section">
+              <div className="header-logo">
+                Grails
+              </div>
             </div>
-          </div>
-          <div className="right">
-            <div className="top">
-              {this.showLinks(this.state.user)}
-            </div>
-            <div className="bottom">
-              {this.showLinks(this.state.page)}
+            <div className="right-section">
+              <div className="header-top">
+                {this.showLinks(this.state.user)}
+              </div>
+              <div className="header-bottom">
+                {this.showLinks(this.state.page)}
+              </div>
             </div>
           </div>
         </div>

@@ -22,7 +22,7 @@ class Home extends Component {
           list={this.props.products.bySell}
           title='Best Selling Sneakers'
         />
-        <HomePromotion />
+        {/* <HomePromotion /> */}
         <CardBlock
           list={this.props.products.byArrival}
           title='New Arrivals'

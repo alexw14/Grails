@@ -10,16 +10,16 @@ const Button = (props) => {
     switch (props.type) {
       case ('default'):
         template = <Link
-          className={!props.altClass ? "link_default" : props.altClass}
+          className={!props.altClass ? "link-default" : props.altClass}
           to={props.linkTo}
           {...props.addStyles}
         >
           {props.title}
         </Link>
         break;
-      case ('bag_link'):
+      case ('bag-link'):
         template = <div
-          className="bag_link"
+          className="bag-link"
           onClick={() => {
             props.runAction();
           }}
@@ -29,9 +29,9 @@ const Button = (props) => {
           />
         </div>
         break;
-      case ('add_to_cart_link'):
+      case ('add-to-cart-link'):
         template = <div
-          className="add_to_cart_link"
+          className="add-to-cart-link"
           onClick={() => {
             props.runAction();
           }}
@@ -49,7 +49,7 @@ const Button = (props) => {
   }
 
   return (
-    <div className="my_link">
+    <div className="my-link">
       {buttons()}
     </div>
   );

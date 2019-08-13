@@ -6,19 +6,19 @@ const HomeSlider = (props) => {
 
   const slides = [
     {
-      img: '/images/featured/featured_home.jpg',
+      img: '/images/featured/featured_bred1.jpg',
       lineOne: 'Nike',
       lineTwo: 'Air Jordan 1',
       linkTitle: 'Shop Now',
       linkTo: '/shop'
-    },
-    {
-      img: '/images/featured/featured_home_2.jpg',
-      lineOne: 'Adidas',
-      lineTwo: 'Yeezy Boost',
-      linkTitle: 'View',
-      linkTo: '/shop'
     }
+    // {
+    //   img: '/images/featured/featured_home_2.jpg',
+    //   lineOne: 'Adidas',
+    //   lineTwo: 'Yeezy Boost',
+    //   linkTitle: 'View',
+    //   linkTo: '/shop'
+    // }
   ]
 
   const settings = {
@@ -34,25 +34,28 @@ const HomeSlider = (props) => {
     slides ?
       slides.map((item, idx) => (
         <div key={idx}>
-          <div className="featured_image"
+          <div className="featured-image"
             style={{
               background: `url(${item.img})`,
-              height: `${window.innerHeight}px`
+              height: '720px',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center center'
             }}
           >
-            <div className="featured_action">
+            <div className="featured-action">
               <div className="tag title">{item.lineOne}</div>
-              <div className="tag low_title">{item.lineTwo}</div>
-              <div>
-                <MyButton 
-                  type="default"
-                  title={item.linkTitle}
-                  linkTo={item.linkTo}
-                  addStyles={{
-                    margin: '10px 0 0 0'
-                  }}
-                />
-              </div>
+              <div className="tag low-title">{item.lineTwo}</div>
+            </div>
+            <div className="featured-action-btn">
+              <MyButton
+                type="default"
+                title={item.linkTitle}
+                linkTo={item.linkTo}
+                addStyles={{
+                  margin: '10px 0 0 0'
+                }}
+              />
             </div>
           </div>
         </div>
@@ -62,7 +65,7 @@ const HomeSlider = (props) => {
 
 
   return (
-    <div className="featured_container">
+    <div className="featured-container">
       <Slider {...settings}>
         {generateSlides()}
       </Slider>

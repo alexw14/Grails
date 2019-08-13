@@ -16,7 +16,7 @@ const CardBlock = (props) => {
   )
 
   return (
-    <div className="card_block">
+    <div className="card-block">
       <div className="container">
         {
           props.title ?
