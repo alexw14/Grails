@@ -4,7 +4,7 @@ import ShopCardBlock from '../utils/shopCardBlock';
 const LoadMoreCards = (props) => {
   return (
     <div>
-      <div>
+      <div className="card-block-shop-wrapper">
         <ShopCardBlock
           grid={props.grid}
           list={props.products}
@@ -12,7 +12,7 @@ const LoadMoreCards = (props) => {
       </div>
       {
         props.size > 0 && props.size >= props.limit ?
-          <div className="load_more_container">
+          <div className="load-more-container">
             <span onClick={() => props.loadMore()}>
               Load More
             </span>

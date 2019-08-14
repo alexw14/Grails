@@ -19,6 +19,7 @@ a {
 
 footer {
   color: #818181;
+  margin-top: 50px;
 }
 
 .flexbox-container {
@@ -299,3 +300,106 @@ header .right-section .header-top, header .right-section .header-bottom {
 .error-label {
   color: #d50000;
 }
+
+.page-top {
+  padding: 20px 0px;
+  border-bottom: 1px solid #424242;
+}
+
+.shop-wrapper {
+  display: flex;
+}
+
+.shop-wrapper .left-section {
+  flex-grow: 1;
+}
+
+.shop-wrapper .right-section {
+  width: 75%;
+}
+
+.shop-wrapper .right-section .shop-options {
+  margin: 0px 20px 20px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.shop-wrapper .shop-options .shop-grids {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.grid-btn {
+  padding: 10px;
+  font-size: 20px;
+  color: #c6c6c6;
+}
+
+.grid-btn.active {
+  color: #727272;
+}
+
+.card-block-shop .card-block-shop-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-block-shop .card-item-wrapper {
+  width: 33.3%;
+  flex-grow: 0;
+}
+
+.load-more-container {
+  margin: 50px 0px;
+}
+
+.load-more-container span {
+  cursor: pointer;
+  font-size: 24px;
+  margin: 0px auto;
+  display: table;
+  border: 1px solid #d3d3d3;
+  padding: 10px 40px;
+}
+
+.collapse-title span {
+  font-weight: bold;
+}
+
+.card-block-shop .card-item-wrapper.grid-bars {
+  width: 100%;
+  padding: 20px 20px 50px;
+}
+
+.card-block-shop .card-item-wrapper.grid-bars .action-container .tags {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.card-block-shop .card-item-wrapper.grid-bars .action-container .tags .name,
+.card-block-shop .card-item-wrapper.grid-bars .action-container .tags .brand,
+.card-block-shop .card-item-wrapper.grid-bars .action-container .tags .price {
+  height: auto;
+  font-size: 20px;
+}
+
+.card-block-shop .card-item-wrapper.grid-bars .action-container .description {
+  padding: 0px 20px;
+  text-align: justify;
+  font-size: 14px;
+}
+
+.card-item-wrapper.grid-bars .actions .button-wrapper:first-child {
+  flex-grow: 0;
+  padding-right: 0px;
+  margin: 0 auto;
+}
+
+label.MuiFormControlLabel-root {
+  color: initial;
+}
+
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+  pointer-events: auto;
+}
+

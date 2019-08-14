@@ -17,17 +17,15 @@ const ShopCardBlock = (props) => {
 
   return (
     <div className="card-block-shop">
-      <div>
-        <div>
-          {
-            props.list ?
-              props.list.length === 0 ?
-                <div className="no-result">Sorry, no results</div>
-                : null
+      <div className="card-block-shop-container">
+        {
+          props.list ?
+            props.list.length === 0 ?
+              <div className="no-result">Sorry, no results</div>
               : null
-          }
-          {renderCards(props.list)}
-        </div>
+            : null
+        }
+        {renderCards(props.list)}
       </div>
     </div>
   );

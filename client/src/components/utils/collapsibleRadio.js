@@ -72,7 +72,7 @@ class CollapsibleRadio extends Component {
           <ListItem onClick={this.handleClick} style={{ padding: '10px 23px 10px 0' }}>
             <ListItemText
               primary={this.props.title}
-              className='collapse_title'
+              className='collapse-title'
             />
             {this.handleFaAngle()}
           </ListItem>

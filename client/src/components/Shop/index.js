@@ -86,7 +86,7 @@ class Shop extends Component {
 
   handleGrid = () => {
     this.setState({
-      grid: !this.state.grid ? 'grid_bars' : ''
+      grid: !this.state.grid ? 'grid-bars' : ''
     })
   }
 
@@ -95,14 +95,13 @@ class Shop extends Component {
     return (
       <div>
         <PageTopSection
-          title="Browse Products"
+          title="Browse Sneakers"
         />
         <div className="container">
-          <div className="shop_wrapper">
-            <div className="left">
-
+          <div className="shop-wrapper">
+            <div className="left-section">
               <CollapsibleCheckbox
-                initState={true}
+                initState={false}
                 title='Brands'
                 list={products.byBrands}
                 handleFilters={(filters) => this.handleFilters(filters, 'brand')}
@@ -119,19 +118,18 @@ class Shop extends Component {
                 list={price}
                 handleFilters={(filters) => this.handleFilters(filters, 'price')}
               />
-
             </div>
-            <div className="right">
-              <div className="shop_options">
-                <div className="shop_grids clear">
+            <div className="right-section">
+              <div className="shop-options">
+                <div className="shop-grids clear">
                   <div
-                    className={`grid_btn ${this.state.grid ? '' : 'active'}`}
+                    className={`grid-btn ${this.state.grid ? '' : 'active'}`}
                     onClick={() => this.handleGrid()}
                   >
                     <FontAwesomeIcon icon={faTh} />
                   </div>
                   <div
-                    className={`grid_btn ${!this.state.grid ? '' : 'active'}`}
+                    className={`grid-btn ${!this.state.grid ? '' : 'active'}`}
                     onClick={() => this.handleGrid()}
                   >
                     <FontAwesomeIcon icon={faBars} />
