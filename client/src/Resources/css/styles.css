@@ -13,6 +13,14 @@ a {
   background: #ffffff;
 }
 
+.background-black {
+  background: #000000;
+}
+
+footer {
+  color: #818181;
+}
+
 .flexbox-container {
   display: flex;
 }
@@ -151,4 +159,88 @@ header .right-section .header-top, header .right-section .header-bottom {
   font-size: 14px;
   background: #ffffff;
   cursor: pointer;
+}
+
+.home-promotion-img {
+  padding: 100px;
+}
+
+.home-promotion .tag {
+  background: #8080808C;
+  color: #fff;
+  padding: 0px 20px;
+  text-transform: uppercase;
+}
+
+.home-promotion .tag.title {
+  font-size: 60px;
+  font-weight: bold;
+  display: table;
+  margin: 20px auto;
+}
+
+.home-promotion .tag.low-title {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 auto;
+  display: table;
+}
+
+.home-promotion .my-link a {
+  margin: 80px auto 10px;
+  padding: 15px 30px;
+  background-color: #fff;
+}
+
+.link-default {
+  display: table;
+}
+
+.footer-wrapper {
+  display: flex;
+  padding-bottom: 50px;
+}
+
+.footer-wrapper .title {
+  font-size: 20px;
+  margin: 20px 0px;
+}
+
+.footer-wrapper .left-section {
+  flex-grow: 1;
+}
+
+.footer-wrapper .business-info {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.footer-wrapper .business-info .tag {
+  flex-grow: 1;
+  width: 50%;
+  margin-bottom: 20px;
+  position: relative; 
+}
+
+.footer-wrapper .business-info .icon {
+  font-size: 26px;
+  position: absolute;
+  top: 10px;
+}
+
+.footer-wrapper .business-info .info {
+  padding-left: 40px;
+}
+
+.footer-wrapper .links-info  {
+  display: flex;
+  padding-top: 70px;
+}
+
+.footer-wrapper .links-info .link {
+  padding: 3px 0px;
+}
+
+.footer-wrapper .links-info .left-section {
+  width: 250px;
 }

@@ -10,21 +10,18 @@ import {
 const Footer = ({ data }) => {
   return (
     data.siteInfo ?
-      <footer className="bck_b_dark">
+      <footer className="background-black">
         <div className="container">
-          <div className="logo">
-            BOAT
-        </div>
-          <div className="wrapper">
-            <div className="left">
-              <h2>Contact Information</h2>
-              <div className="business_nfo">
+          <div className="footer-wrapper">
+            <div className="left-section">
+              <div className="title">Contact Information</div>
+              <div className="business-info">
                 <div className="tag">
                   <FontAwesomeIcon
                     icon={faCompass}
                     className="icon"
                   />
-                  <div className="nfo">
+                  <div className="info">
                     <div>Address</div>
                     <div>{data.siteInfo[0].address}</div>
                   </div>
@@ -34,7 +31,7 @@ const Footer = ({ data }) => {
                     icon={faPhone}
                     className="icon"
                   />
-                  <div className="nfo">
+                  <div className="info">
                     <div>Phone</div>
                     <div>{data.siteInfo[0].phone}</div>
                   </div>
@@ -44,7 +41,7 @@ const Footer = ({ data }) => {
                     icon={faClock}
                     className="icon"
                   />
-                  <div className="nfo">
+                  <div className="info">
                     <div>Hours</div>
                     <div>{data.siteInfo[0].hours}</div>
                   </div>
@@ -54,16 +51,25 @@ const Footer = ({ data }) => {
                     icon={faEnvelope}
                     className="icon"
                   />
-                  <div className="nfo">
+                  <div className="info">
                     <div>Email</div>
                     <div>{data.siteInfo[0].email}</div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="left">
-              <h2>Be the first to know</h2>
-              <div>Get all the latest</div>
+            <div className="links-info">
+              <div className="left-section">
+                <div className="link">Assurance of Authenticity</div>
+                <div className="link">Careers</div>
+                <div className="link">FAQS</div>
+                <div className="link">Privacy</div>
+              </div>
+              <div>
+                <div className="link">Returns</div>
+                <div className="link">Support</div>
+                <div className="link">Terms</div>
+              </div>
             </div>
           </div>
         </div>

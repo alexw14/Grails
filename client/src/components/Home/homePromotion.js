@@ -6,21 +6,25 @@ const HomePromotion = (props) => {
 
   const promotion = {
     img: '/images/featured/featured_home_3.jpg',
-    lineOne: 'Under Retail',
-    lineTwo: 'Up to 40%',
-    linkTitle: 'Shop Now',
+    lineOne: 'Just Dropped',
+    lineTwo: 'Discover the latest',
+    linkTitle: 'See All',
     linkTo: '/shop'
   }
 
   const showPromotion = () => (
     promotion ?
-      <div className="home_promotion_img"
+      <div className="home-promotion-img"
         style={{
-          background: `url(${promotion.img})`
+          background: `url(${promotion.img})`,
+          height: '500px',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center'
         }}
       >
         <div className="tag title">{promotion.lineOne}</div>
-        <div className="tag low_title">{promotion.lineTwo}</div>
+        <div className="tag low-title">{promotion.lineTwo}</div>
         <div>
           <MyButton
             type="default"
@@ -36,7 +40,7 @@ const HomePromotion = (props) => {
   )
 
   return (
-    <div className="home_promotion">
+    <div className="home-promotion">
       {showPromotion()}
     </div>
   );
