@@ -6,7 +6,7 @@ const FormField = ({ formData, change, id }) => {
     let errorMessage = null;
     if (formData.validation && !formData.valid) {
       errorMessage = (
-        <div className="error_label">
+        <div className="error-label">
           {formData.validationMessage}
         </div>
       )
@@ -20,7 +20,7 @@ const FormField = ({ formData, change, id }) => {
       case ('input'):
         formTemplate = (
           <div className="formBlock">
-            {formData.showLabel ? <div className="label_inputs">{formData.config.label}</div> : null}
+            {formData.showLabel ? <div className="label-inputs">{formData.config.label}</div> : null}
             <input
               {...formData.config}
               value={formData.value}
@@ -34,7 +34,7 @@ const FormField = ({ formData, change, id }) => {
       case ('textarea'):
         formTemplate = (
           <div className="formBlock">
-            {formData.showLabel ? <div className="label_inputs">{formData.config.label}</div> : null}
+            {formData.showLabel ? <div className="label-inputs">{formData.config.label}</div> : null}
             <textarea
               {...formData.config}
               value={formData.value}
@@ -48,7 +48,7 @@ const FormField = ({ formData, change, id }) => {
       case ('select'):
         formTemplate = (
           <div className="formBlock">
-            {formData.showLabel ? <div className="label_inputs">{formData.config.label}</div> : null}
+            {formData.showLabel ? <div className="label-inputs">{formData.config.label}</div> : null}
             <select
               value={formData.value}
               onBlur={(event) => change({ event, id, blur: true })}

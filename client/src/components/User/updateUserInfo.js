@@ -25,21 +25,6 @@ class UpdateUserInfo extends Component {
         touched: false,
         validationMessage: ''
       },
-      lastname: {
-        element: 'input',
-        value: '',
-        config: {
-          name: 'lastname_input',
-          type: 'text',
-          placeholder: 'Enter your last name'
-        },
-        validation: {
-          required: true,
-        },
-        valid: false,
-        touched: false,
-        validationMessage: ''
-      },
       email: {
         element: 'input',
         value: '',
@@ -108,13 +93,6 @@ class UpdateUserInfo extends Component {
               <FormField
                 id={'name'}
                 formData={this.state.formData.name}
-                change={(element) => this.updateForm(element)}
-              />
-            </div>
-            <div className="block">
-              <FormField
-                id={'lastname'}
-                formData={this.state.formData.lastname}
                 change={(element) => this.updateForm(element)}
               />
             </div>

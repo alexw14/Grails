@@ -1,11 +1,12 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faCompass,
+  faMapMarkerAlt,
   faPhone,
-  faClock,
-  faEnvelope
+  faDove,
+  faEnvelopeSquare
 } from '@fortawesome/free-solid-svg-icons';
+import faMapMaker from '@fortawesome/fontawesome-free-solid/faDove'
 
 const Footer = ({ data }) => {
   return (
@@ -14,15 +15,14 @@ const Footer = ({ data }) => {
         <div className="container">
           <div className="footer-wrapper">
             <div className="left-section">
-              <div className="title">Contact Information</div>
               <div className="business-info">
                 <div className="tag">
                   <FontAwesomeIcon
-                    icon={faCompass}
+                    icon={faMapMarkerAlt}
                     className="icon"
                   />
                   <div className="info">
-                    <div>Address</div>
+                    <div>Location</div>
                     <div>{data.siteInfo[0].address}</div>
                   </div>
                 </div>
@@ -38,21 +38,21 @@ const Footer = ({ data }) => {
                 </div>
                 <div className="tag">
                   <FontAwesomeIcon
-                    icon={faClock}
+                    icon={faDove}
                     className="icon"
                   />
                   <div className="info">
-                    <div>Hours</div>
+                    <div>Twitter</div>
                     <div>{data.siteInfo[0].hours}</div>
                   </div>
                 </div>
                 <div className="tag">
                   <FontAwesomeIcon
-                    icon={faEnvelope}
+                    icon={faEnvelopeSquare}
                     className="icon"
                   />
                   <div className="info">
-                    <div>Email</div>
+                    <div>Contact</div>
                     <div>{data.siteInfo[0].email}</div>
                   </div>
                 </div>

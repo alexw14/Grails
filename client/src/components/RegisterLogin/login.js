@@ -99,8 +99,9 @@ class Login extends Component {
           }
           <div className="login-btn-wrapper">
             <button
-              className="btn waves-effect waves-light"
+              className="btn waves-effect waves-light transparent"
               onClick={(event) => this.submitForm(event)}
+              style={{ color: 'black' }}
             >
               Login
           </button>

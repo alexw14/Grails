@@ -16,13 +16,13 @@ const ShopCardBlock = (props) => {
   )
 
   return (
-    <div className="card_block_shop">
+    <div className="card-block-shop">
       <div>
         <div>
           {
             props.list ?
               props.list.length === 0 ?
-                <div className="no_result">Sorry, no results</div>
+                <div className="no-result">Sorry, no results</div>
                 : null
               : null
           }

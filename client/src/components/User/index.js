@@ -12,7 +12,6 @@ const UserDashboard = ({ user }) => {
           <h1>User Information</h1>
           <div>
             <span>{user.userData.name}</span>
-            <span>{user.userData.lastname}</span>
             <span>{user.userData.email}</span>
           </div>
           <MyButton

@@ -162,7 +162,7 @@ header .right-section .header-top, header .right-section .header-bottom {
 }
 
 .home-promotion-img {
-  padding: 100px;
+  padding: 50px;
 }
 
 .home-promotion .tag {
@@ -187,7 +187,7 @@ header .right-section .header-top, header .right-section .header-bottom {
 }
 
 .home-promotion .my-link a {
-  margin: 80px auto 10px;
+  margin: 120px auto 10px;
   padding: 15px 30px;
   background-color: #fff;
 }
@@ -213,6 +213,7 @@ header .right-section .header-top, header .right-section .header-bottom {
 .footer-wrapper .business-info {
   flex-wrap: wrap;
   display: flex;
+  padding-top: 70px;
 }
 
 .footer-wrapper .business-info .tag {
@@ -249,7 +250,7 @@ header .right-section .header-top, header .right-section .header-bottom {
   min-height: 700px;
 }
 
-.login-page-wrapper {
+.login-page-wrapper, .register-page-wrapper {
   padding-top: 100px;
 }
 
@@ -259,11 +260,18 @@ header .right-section .header-top, header .right-section .header-bottom {
   height: 400px;
 }
 
-.register-login-container .login-title {
-  font-size: 40px;
+.register-login-container .login-title, .register-login-container .register-title {
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 40px
+}
+
+.register-login-container .login-title {
+  font-size: 40px;
+}
+
+.register-login-container .register-title {
+  font-size: 30px;
 }
 
 .register-login-container .left-section, .register-login-container .right-section {
@@ -279,11 +287,15 @@ header .right-section .header-top, header .right-section .header-bottom {
   margin: 0px 50px;
 }
 
-.signin-wrapper .login-btn-wrapper {
+.signin-wrapper .login-btn-wrapper, .register-wrapper .register-btn-wrapper {
   margin: 20px 0px 10px;
   text-align: center;
 }
 
 .signin-wrapper .my-link .link-default {
   margin: 20px auto;
+}
+
+.error-label {
+  color: #d50000;
 }

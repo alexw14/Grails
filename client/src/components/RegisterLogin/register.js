@@ -18,22 +18,7 @@ class Register extends Component {
         config: {
           name: 'name_input',
           type: 'text',
-          placeholder: 'Enter your name'
-        },
-        validation: {
-          required: true,
-        },
-        valid: false,
-        touched: false,
-        validationMessage: ''
-      },
-      lastname: {
-        element: 'input',
-        value: '',
-        config: {
-          name: 'lastname_input',
-          type: 'text',
-          placeholder: 'Enter your last name'
+          placeholder: 'Full name'
         },
         validation: {
           required: true,
@@ -48,7 +33,7 @@ class Register extends Component {
         config: {
           name: 'email_input',
           type: 'email',
-          placeholder: 'Enter your email'
+          placeholder: 'Email'
         },
         validation: {
           required: true,
@@ -64,7 +49,7 @@ class Register extends Component {
         config: {
           name: 'password_input',
           type: 'password',
-          placeholder: 'Enter your password'
+          placeholder: 'Password'
         },
         validation: {
           required: true,
@@ -79,7 +64,7 @@ class Register extends Component {
         config: {
           name: 'confirm_password_input',
           type: 'password',
-          placeholder: 'Confirm your password'
+          placeholder: 'Confirm password'
         },
         validation: {
           required: true,
@@ -133,66 +118,67 @@ class Register extends Component {
 
   render() {
     return (
-      <div className="page_wrapper">
+      <div className="register-page-wrapper">
         <div className="container">
-          <div className="register_login_container">
-            <div className="left">
-              <form onSubmit={(event) => this.submitForm(event)}>
-                <h2>Personal Information</h2>
-                <div className="form_block_two">
-                  <div className="block">
-                    <FormField
-                      id={'name'}
-                      formData={this.state.formData.name}
-                      change={(element) => this.updateForm(element)}
-                    />
-                  </div>
-                  <div className="block">
-                    <FormField
-                      id={'lastname'}
-                      formData={this.state.formData.lastname}
-                      change={(element) => this.updateForm(element)}
-                    />
-                  </div>
-                </div>
-                <div>
+          <div className="register-login-container">
+            <div className="left-section">
+              <div
+                style={{
+                  background: `url(/images/featured/bred1back.jpeg)`,
+                  width: '100%',
+                  height: '400px',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'contain'
+                }}
+              />
+            </div>
+            <div className="right-section">
+              <div className="register-title">Create an account</div>
+              <div className="register-wrapper">
+                <form onSubmit={(event) => this.submitForm(event)}>
+                  <FormField
+                    id={'name'}
+                    formData={this.state.formData.name}
+                    change={(element) => this.updateForm(element)}
+                  />
                   <FormField
                     id={'email'}
                     formData={this.state.formData.email}
                     change={(element) => this.updateForm(element)}
                   />
-                </div>
-                <h2>Verify Password</h2>
-                <div className="form_block_two">
-                  <div className="block">
-                    <FormField
-                      id={'password'}
-                      formData={this.state.formData.password}
-                      change={(element) => this.updateForm(element)}
-                    />
+                  <FormField
+                    id={'password'}
+                    formData={this.state.formData.password}
+                    change={(element) => this.updateForm(element)}
+                  />
+                  <FormField
+                    id={'confirmPassword'}
+                    formData={this.state.formData.confirmPassword}
+                    change={(element) => this.updateForm(element)}
+                  />
+                  <div>
+                    {
+                      this.state.formError ?
+                        <div className="error-label">Please check your data</div>
+                        : null
+                    }
+                    <div className="register-btn-wrapper">
+                      <button
+                        className="btn waves-effect waves-light transparent"
+                        onClick={(event) => this.submitForm(event)}
+                        style={{ color: 'black' }}
+                      >
+                        Create account
+                    </button>
+                    </div>
                   </div>
-                  <div className="block">
-                    <FormField
-                      id={'confirmPassword'}
-                      formData={this.state.formData.confirmPassword}
-                      change={(element) => this.updateForm(element)}
-                    />
-                  </div>
-                </div>
-                <div>
-                  {
-                    this.state.formError ?
-                      <div className="error_label">Please check your data</div>
-                      : null
-                  }
-                  <button onClick={(event) => this.submitForm(event)}>Create an account</button>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>
         <Dialog open={this.state.formSuccess}>
-          <div className="dialog_alert">
+          <div className="dialog-alert">
             <div>Congratulations!</div>
             <div>You will be redirected to the login in a couple of seconds...</div>
           </div>

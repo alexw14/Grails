@@ -2,7 +2,7 @@ import React from 'react';
 
 const PageTopSection = (props) => {
   return (
-    <div className="page_top">
+    <div className="page-top">
       <div className="container">
         {props.title}
       </div>
