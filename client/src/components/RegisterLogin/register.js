@@ -112,7 +112,7 @@ class Register extends Component {
             formSuccess: true,
           });
           setTimeout(() => {
-            this.props.history.push('/register-login')
+            this.props.history.push('/login')
           }, 3000)
         } else {
           this.setState({

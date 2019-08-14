@@ -15,7 +15,7 @@ export default function (ComposedClass, reload, adminRoute = null) {
         let user = this.props.user.userData;
         if (!user.isAuth) {
           if (reload) {
-            this.props.history.push('/register-login');
+            this.props.history.push('/login');
           }
         } else {
           if (adminRoute && !user.isAdmin) {

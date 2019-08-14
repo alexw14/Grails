@@ -1,28 +1,25 @@
 import React from 'react';
-import UtilButton from '../utils/button';
 import Login from './login';
 
 const RegisterLogin = () => {
   return (
-    <div className="page_wrapper">
+    <div className="login-page-wrapper">
       <div className="container">
-        <div className="register_login_container">
-          <div className="left">
-            <h1>New Customer</h1>
-            <p>Hello New Customer</p>
-            <UtilButton 
-              type="default"
-              title="Create an account"
-              linkTo="/register"
-              addStyles={{
-                margin:"10px 0 0 0"
+        <div className="register-login-container">
+          <div className="left-section">
+            <div
+              style={{
+                background: `url(/images/featured/bred1back.jpeg)`,
+                width: '100%',
+                height: '400px',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'contain'
               }}
             />
           </div>
-          <div className="right">
-              <h2>Registered Customers</h2>
-              <p>If you have an account, please log in.</p>
-              <Login />
+          <div className="right-section">
+            <div className="login-title">Log in</div>
+            <Login />
           </div>
         </div>
       </div>

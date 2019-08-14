@@ -28,7 +28,7 @@ const Routes = () => {
         <Route path="/admin/site-info" exact component={Auth(ManageSite, true)} />
 
         <Route path="/register" exact component={Auth(Register, false)} />
-        <Route path="/register-login" exact component={Auth(RegisterLogin, false)} />
+        <Route path="/login" exact component={Auth(RegisterLogin, false)} />
         <Route path="/sneaker/:id" exact component={Auth(ProductDetail, null)} />
         <Route path="/shop" exact component={Auth(Shop, null)} />
         <Route path="/" exact component={Auth(Home, null)} />

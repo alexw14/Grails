@@ -244,3 +244,46 @@ header .right-section .header-top, header .right-section .header-bottom {
 .footer-wrapper .links-info .left-section {
   width: 250px;
 }
+
+.page-container {
+  min-height: 700px;
+}
+
+.login-page-wrapper {
+  padding-top: 100px;
+}
+
+.register-login-container {
+  display: flex;
+  padding: 30px;
+  height: 400px;
+}
+
+.register-login-container .login-title {
+  font-size: 40px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 40px
+}
+
+.register-login-container .left-section, .register-login-container .right-section {
+  flex-grow: 1;
+  width: 50%;
+}
+
+.register-login-container .left-section {
+  margin: 0px 10px;
+}
+
+.register-login-container .right-section {
+  margin: 0px 50px;
+}
+
+.signin-wrapper .login-btn-wrapper {
+  margin: 20px 0px 10px;
+  text-align: center;
+}
+
+.signin-wrapper .my-link .link-default {
+  margin: 20px auto;
+}

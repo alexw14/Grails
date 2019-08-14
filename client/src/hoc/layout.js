@@ -14,7 +14,7 @@ class Layout extends Component {
     return (
       <div>
         <Header />
-        <div className="page_container">
+        <div className="page-container">
           {this.props.children}
         </div>
         <Footer data={this.props.site} />

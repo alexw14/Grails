@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import UtilButton from '../utils/button';
 import FormField from '../utils/Form/formfield';
 import { update, generateData, isFormValid } from '../utils/Form/FormActions';
 import { loginUser } from '../../actions/user_actions';
@@ -18,7 +19,7 @@ class Login extends Component {
         config: {
           name: 'email_input',
           type: 'email',
-          placeholder: 'Enter your email'
+          placeholder: 'Email Address'
         },
         validation: {
           required: true,
@@ -34,7 +35,7 @@ class Login extends Component {
         config: {
           name: 'password_input',
           type: 'password',
-          placeholder: 'Enter your password'
+          placeholder: 'Password'
         },
         validation: {
           required: true,
@@ -77,7 +78,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="signin_wrapper">
+      <div className="signin-wrapper">
         <form onSubmit={(event) => this.submitForm(event)}>
           <FormField
             id={'email'}
@@ -91,13 +92,28 @@ class Login extends Component {
           />
           {
             this.state.formError ?
-              <div className="error_label">
-                Please check your data
+              <div className="error-label">
+                Email or password not correct.
               </div>
               : null
           }
-          <button onClick={(event) => this.submitForm(event)}>Login</button>
+          <div className="login-btn-wrapper">
+            <button
+              className="btn waves-effect waves-light"
+              onClick={(event) => this.submitForm(event)}
+            >
+              Login
+          </button>
+          </div>
         </form>
+        <UtilButton
+          type="default"
+          title="Create account +"
+          linkTo="/register"
+          addStyles={{
+            margin: "10px 0 0 0"
+          }}
+        />
       </div>
     );
   }
