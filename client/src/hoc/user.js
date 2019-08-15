@@ -19,16 +19,16 @@ const links = [
 
 const adminLinks = [
   {
-    name: 'Site Info',
-    linkTo: '/admin/site-info'
-  },
-  {
     name: 'Add Product',
     linkTo: '/admin/add-product'
   },
   {
     name: 'Management',
     linkTo: '/admin/manage-category'
+  },
+  {
+    name: 'Site Info',
+    linkTo: '/admin/site-info'
   }
 ]
 
@@ -46,16 +46,16 @@ const UserLayout = (props) => {
 
   return (
     <div className="container">
-      <div className="user_container">
-        <div className="user_left_nav">
-          <h2>My Account</h2>
+      <div className="user-container">
+        <div className="user-left-nav">
+          <div className="title">My Account</div>
           <div className="links">
             {generateLinks(links)}
           </div>
           {
             props.user.userData.isAdmin ?
               <div>
-                <h2>Admin</h2>
+                <div className="title">Admin</div>
                 <div className="links">
                   {generateLinks(adminLinks)}
                 </div>
@@ -63,7 +63,7 @@ const UserLayout = (props) => {
               : null
           }
         </div>
-        <div className="user_right">
+        <div className="user-right">
           {props.children}
         </div>
       </div>

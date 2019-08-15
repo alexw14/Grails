@@ -53,6 +53,10 @@ header .right-section .header-top, header .right-section .header-bottom {
   display: inline-block;
 }
 
+.header-top .cart-link span {
+  padding-left: 5px;
+}
+
 .featured-action {
   position: absolute;
   top: 23%;
@@ -486,6 +490,90 @@ header .right-section .header-top, header .right-section .header-bottom {
 .add-to-cart-link svg {
   margin-right: 10px;
   color: #616161;
+}
+
+.user-container {
+  display: flex;
+  margin-top: 60px;
+}
+
+.user-container .user-left-nav {
+  width: 20%;
+}
+
+.user-container .user-right {
+  width: 80%;
+}
+
+.user-container .user-left-nav .title {
+  font-size: 28px;
+  padding: 20px 0px;
+}
+
+.user-container .user-left-nav .links a {
+  display: block;
+  font-size: 18px;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 10px 0px;
+}
+
+.user-container .user-left-nav .links {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.user-container .user-right {
+  padding-left: 50px;
+}
+
+.user-container .user-right .user-cart {
+  margin-top: 24px;
+}
+
+.user-container .user-right .title {
+  font-size: 34px;
+}
+
+.user-container .user-product-block {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #dbdbdb;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.user-container .user-product-block .item {
+  padding: 0px 5px;
+  margin: auto 0px;
+  flex-grow: 1;
+}
+
+.user-product-block .item.product {
+  width: 40%;
+}
+
+.user-container .user-product-block .item div {
+  font-size: 14px;
+  padding: 10px 0px;
+}
+
+.user-container .user-product-block .item .image {
+  width: 125px;
+  height: 125px;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: 50% !important;
+}
+
+.user-container .user-cart .user-cart-sum {
+  font-size: 24px;
+  text-transform: uppercase;
+  padding: 20px 30px;
+}
+
+.user-container .checkout-button-container {
+  text-align: center;
+  margin: 30px 0px 50px;
 }
 
 #lightboxBackdrop button:focus {

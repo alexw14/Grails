@@ -56,14 +56,14 @@ class UserCart extends Component {
   }
 
   showSuccessMessage = () => (
-    <div className="cart_success">
+    <div className="cart-success">
       <div>Thank you for your purchase!</div>
       <div> We will send you an update as soon as your product is shipped!</div>
     </div>
   )
 
   showNoItemMessage = () => (
-    <div className="cart_no_items">
+    <div className="cart-no-items">
       <div>You have no items in your shopping cart</div>
     </div>
   )
@@ -83,8 +83,8 @@ class UserCart extends Component {
     return (
       <UserLayout>
         <div>
-          <h1>My cart</h1>
-          <div className="user_cart">
+          <div className="title">My cart</div>
+          <div className="user-cart">
             <UserProductBlock
               products={this.props.user}
               type="cart"
@@ -93,7 +93,7 @@ class UserCart extends Component {
             {
               this.state.showTotal ?
                 <div>
-                  <div className="user_cart_sum">
+                  <div className="user-cart-sum">
                     <div>Total Amount: $ {this.state.total}</div>
                   </div>
                 </div>
@@ -106,7 +106,7 @@ class UserCart extends Component {
           </div>
           {
             this.state.showTotal ?
-              <div className="paypal_button_container">
+              <div className="checkout-button-container">
                 <CheckOutButton
                   toPay={this.state.total}
                   onSuccess={() => this.transactionSuccess()}

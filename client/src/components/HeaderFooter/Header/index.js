@@ -55,10 +55,10 @@ class Header extends Component {
     const user = this.props.user.userData;
     return (
       <div className="cart-link" key={idx}>
-        <span>{user.cart ? user.cart.length : 0}</span>
         <Link to={item.linkTo} key={idx}>
           {item.name}
         </Link>
+        <span>( {user.cart ? user.cart.length : 0} )</span>
       </div>
     )
   }

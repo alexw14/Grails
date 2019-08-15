@@ -13,29 +13,32 @@ const UserProductBlock = (props) => {
   const renderItems = () => (
     props.products.cartDetail ?
       props.products.cartDetail.map(item => (
-        <div className="user_product_block" key={item._id}>
-          <div className="item">
+        <div className="user-product-block" key={item._id}>
+          <div className="item thumb">
             <div
               className="image"
               style={{ background: `url(${renderCartImage(item.images)}) no-repeat` }}
             ></div>
           </div>
-          <div className="item">
-            <h4>Product name</h4>
+          <div className="item product">
+            <div>Product name</div>
             <div>{item.brand.name} {item.name}</div>
           </div>
-          <div className="item">
-            <h4>Quantity</h4>
+          <div className="item quantity">
+            <div>Quantity</div>
             <div>{item.quantity}</div>
           </div>
-          <div className="item">
-            <h4>Price</h4>
+          <div className="item price">
+            <div>Price</div>
             <div>$ {item.price}</div>
           </div>
-          <div className="item btn">
-            <div className="cart_remove_btn" onClick={() => props.removeItem(item._id)}>
+          <div className="item cart-remove-btn">
+            <button
+              className="btn-small red waves-effect waves-light"
+              onClick={() => props.removeItem(item._id)}
+            >
               Remove
-            </div>
+            </button>
           </div>
         </div>
       ))
