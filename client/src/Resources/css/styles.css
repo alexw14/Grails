@@ -57,6 +57,10 @@ header .right-section .header-top, header .right-section .header-bottom {
   padding-left: 5px;
 }
 
+.log-out-link {
+  cursor: pointer;
+}
+
 .featured-action {
   position: absolute;
   top: 23%;
