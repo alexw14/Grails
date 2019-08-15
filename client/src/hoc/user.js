@@ -8,7 +8,7 @@ const links = [
     linkTo: '/user/dashboard'
   },
   {
-    name: 'User Information',
+    name: 'My Profile',
     linkTo: '/user/user-profile'
   },
   {

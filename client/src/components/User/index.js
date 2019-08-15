@@ -8,23 +8,23 @@ const UserDashboard = ({ user }) => {
   return (
     <UserLayout>
       <div>
-        <div className="user_nfo_panel">
-          <h1>User Information</h1>
-          <div>
+        <div className="user-info-panel">
+          <div className="title">User Information</div>
+          <div className="user-info">
             <span>{user.userData.name}</span>
             <span>{user.userData.email}</span>
           </div>
           <MyButton
             type="default"
-            title="Edit account info"
+            title="Edit Profile"
             linkTo="/user/user-profile"
           />
         </div>
         {
           user.userData.history ?
-            <div className="user_nfo_panel">
-              <h1>History Purchases</h1>
-              <div className="user_product_block_wrapper">
+            <div className="user-purchase-history-panel">
+              <div className="title">Order History</div>
+              <div className="user-product-block-wrapper">
                 <UserHistoryBlock
                   purchaseHistory={user.userData.history}
                 />

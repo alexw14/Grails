@@ -576,6 +576,113 @@ header .right-section .header-top, header .right-section .header-bottom {
   margin: 30px 0px 50px;
 }
 
+.user-container .user-info-panel .user-info, .user-container .user-info-panel .my-link{
+  padding: 0px 10px;
+}
+
+.user-container .user-info-panel .my-link {
+  margin-top: 20px;
+}
+
+.user-container .user-info-panel span {
+  display: block;
+  padding-top: 10px;
+}
+
+.user-info-panel .my-link .link-default, 
+.update-profile-container .update-btn, 
+.add-product-container .add-product-btn,
+.update-site-info-container .update-site-info-btn,
+.add-brand-btn, .add-cat-btn {
+  border: 1px solid #d3d3d3;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 14px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.user-purchase-history-panel {
+  margin-top: 40px;
+}
+
+.update-profile-container {
+  margin-top: 40px;
+}
+
+.update-profile-container .update-btn,
+.update-site-info-container .update-site-info-btn,
+.add-brand-btn, .add-cat-btn {
+  display: table;
+  margin-top: 20px;
+}
+
+.form-success {
+  background: #4CAF50;
+  color: #ffffffff;
+  padding: 10px;
+  display: block;
+}
+
+.dropzone-container {
+  display: flex;
+  margin: 10px 0px;
+}
+
+.dropzone {
+  margin: auto 0;
+}
+
+.dropzone-box {
+  width: 150px;
+  height: 150px;
+  padding: 10px;
+}
+
+.dropzone-box .wrap {
+  width: 100%;
+  height: 100%;
+  background-size: contain !important;
+  background-position: 50% !important;
+}
+
+.add-product-container form > div {
+  margin-bottom: 20px;
+}
+
+.add-product-container form select {
+  display: block;
+}
+
+.add-product-container .add-product-btn {
+  display: table;
+}
+
+.admin-category-wrapper {
+  margin-bottom: 50px;
+}
+
+.admin-category-wrapper .title, .update-site-info-container .title {
+  margin-bottom: 10px;
+}
+
+.admin-two-column {
+  display: flex;
+}
+
+.admin-two-column .left-section {
+  width: 200px;
+}
+
+.admin-two-column .right-section {
+  flex-grow: 1;
+}
+
+.admin-two-column .left-section .category-item {
+  padding: 5px 0px;
+}
+
 #lightboxBackdrop button:focus {
   background-color: transparent;
 }

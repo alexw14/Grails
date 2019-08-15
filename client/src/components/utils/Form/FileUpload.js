@@ -79,7 +79,7 @@ class FileUpload extends Component {
     return (
       <Dropzone onDrop={(event) => this.onDrop(event)}>
         {({ getRootProps, getInputProps }) => (
-          <section>
+          <section className="dropzone-container">
             <div {...getRootProps({ className: 'dropzone' })}>
               <input {...getInputProps()} />
               <FontAwesomeIcon icon={faPlusCircle} />

@@ -273,8 +273,8 @@ class AddProduct extends Component {
   render() {
     return (
       <UserLayout>
-        <div>
-          <h1>Add Product</h1>
+        <div className="add-product-container">
+          <div className="title">Add Product</div>
           <form onSubmit={(event) => this.submitForm(event)}>
             <FileUpload
               handleImages={(images) => this.handleImages(images)}
@@ -305,7 +305,6 @@ class AddProduct extends Component {
               formData={this.state.formData.price}
               change={(element) => this.updateForm(element)}
             />
-            <div className="form_devider"></div>
             <FormField
               id={'brand'}
               formData={this.state.formData.brand}
@@ -334,15 +333,15 @@ class AddProduct extends Component {
             <div>
               {
                 this.state.formSuccess ?
-                  <div className="form_success">Success!</div>
+                  <div className="form-success">Success!</div>
                   : null
               }
               {
                 this.state.formError ?
-                  <div className="error_label">Please check your data</div>
+                  <div className="error-label">Please check your data</div>
                   : null
               }
-              <button onClick={(event) => this.submitForm(event)}>Add Product</button>
+              <div className="add-product-btn" onClick={(event) => this.submitForm(event)}>Add Product</div>
             </div>
           </form>
         </div>

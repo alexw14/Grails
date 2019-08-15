@@ -5,7 +5,7 @@ import UpdateUserInfo from './updateUserInfo';
 const UpdateProfile = () => {
   return (
     <UserLayout>
-      <h1>Profile</h1>
+      <div className="title">Profile</div>
       <UpdateUserInfo />
     </UserLayout>
   );

@@ -16,7 +16,7 @@ class UpdateUserInfo extends Component {
         config: {
           name: 'name_input',
           type: 'text',
-          placeholder: 'Enter your name'
+          placeholder: 'Full Name'
         },
         validation: {
           required: true,
@@ -31,7 +31,7 @@ class UpdateUserInfo extends Component {
         config: {
           name: 'email_input',
           type: 'email',
-          placeholder: 'Enter your email'
+          placeholder: 'Email'
         },
         validation: {
           required: true,
@@ -85,37 +85,30 @@ class UpdateUserInfo extends Component {
 
   render() {
     return (
-      <div>
+      <div className="update-profile-container">
         <form onSubmit={(event) => this.submitForm(event)}>
-          <h2>Account Information</h2>
-          <div className="form_block_two">
-            <div className="block">
-              <FormField
-                id={'name'}
-                formData={this.state.formData.name}
-                change={(element) => this.updateForm(element)}
-              />
-            </div>
-          </div>
-          <div>
-            <FormField
-              id={'email'}
-              formData={this.state.formData.email}
-              change={(element) => this.updateForm(element)}
-            />
-          </div>
+          <FormField
+            id={'name'}
+            formData={this.state.formData.name}
+            change={(element) => this.updateForm(element)}
+          />
+          <FormField
+            id={'email'}
+            formData={this.state.formData.email}
+            change={(element) => this.updateForm(element)}
+          />
           <div>
             {
               this.state.formSuccess ?
-                <div className="form_success">Success</div>
+                <div className="form-success">Success</div>
                 : null
             }
             {
               this.state.formError ?
-                <div className="error_label">Please check your data</div>
+                <div className="error-label">Please check your data</div>
                 : null
             }
-            <button onClick={(event) => this.submitForm(event)}>Update</button>
+            <div className="update-btn" onClick={(event) => this.submitForm(event)}>Update</div>
           </div>
         </form>
       </div>

@@ -31,7 +31,7 @@ class ManageCategories extends Component {
   showCategories = () => (
     this.props.products.byCategories ?
       this.props.products.byCategories.map((item, i) => (
-        <div className="category_item" key={item._id}>
+        <div className="category-item" key={item._id}>
           {item.name}
         </div>
       ))
@@ -83,15 +83,15 @@ class ManageCategories extends Component {
 
   render() {
     return (
-      <div className="admin_category_wrapper">
-        <h1>Categories</h1>
-        <div className="admin_two_column">
-          <div className="left">
-            <div className="brands_container">
+      <div className="admin-category-wrapper">
+        <div className="title">Categories</div>
+        <div className="admin-two-column">
+          <div className="left-section">
+            <div className="brands-container">
               {this.showCategories()}
             </div>
           </div>
-          <div className="right">
+          <div className="right-section">
             <form onSubmit={(event) => this.submitForm(event)}>
               <FormField
                 id={'name'}
@@ -100,15 +100,15 @@ class ManageCategories extends Component {
               />
               {
                 this.state.formSuccess ?
-                  <div className="form_success">Success!</div>
+                  <div className="form-success">Success!</div>
                   : null
               }
               {
                 this.state.formError ?
-                  <div className="error_label">Please check your data</div>
+                  <div className="error-label">Please check your data</div>
                   : null
               }
-              <button onClick={(event) => this.submitForm(event)}>Add Category</button>
+              <div className="add-cat-btn" onClick={(event) => this.submitForm(event)}>Add Category</div>
             </form>
           </div>
         </div>

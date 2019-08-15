@@ -10,14 +10,14 @@ class UpateSiteInfo extends Component {
     formError: false,
     formSuccess: false,
     formData: {
-      address: {
+      location: {
         element: 'input',
         value: '',
         config: {
-          name: 'address_input',
+          name: 'location_input',
           type: 'text',
-          placeholder: 'Enter Address',
-          label: 'Address'
+          placeholder: 'Enter Location',
+          label: 'Location'
         },
         validation: {
           required: true,
@@ -27,14 +27,14 @@ class UpateSiteInfo extends Component {
         validationMessage: '',
         showLabel: true
       },
-      hours: {
+      social: {
         element: 'input',
         value: '',
         config: {
-          name: 'hours_input',
+          name: 'social_input',
           type: 'text',
-          placeholder: 'Enter Working Hours',
-          label: 'Working Hours'
+          placeholder: 'Enter Social Media',
+          label: 'Social Media'
         },
         validation: {
           required: true,
@@ -122,17 +122,17 @@ class UpateSiteInfo extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Site Info</h1>
+      <div className="update-site-info-container">
+        <div className="title">Site Info</div>
         <form onSubmit={(event) => this.submitForm(event)}>
           <FormField
-            id={'address'}
-            formData={this.state.formData.address}
+            id={'location'}
+            formData={this.state.formData.location}
             change={(element) => this.updateForm(element)}
           />
           <FormField
-            id={'hours'}
-            formData={this.state.formData.hours}
+            id={'social'}
+            formData={this.state.formData.social}
             change={(element) => this.updateForm(element)}
           />
           <FormField
@@ -148,15 +148,15 @@ class UpateSiteInfo extends Component {
           <div>
             {
               this.state.formSuccess ?
-                <div className="form_success">Success</div>
+                <div className="form-success">Success</div>
                 : null
             }
             {
               this.state.formError ?
-                <div className="error_label">Please check your data</div>
+                <div className="error-label">Please check your data</div>
                 : null
             }
-            <button onClick={(event) => this.submitForm(event)}>Update Site Info</button>
+            <div className="update-site-info-btn" onClick={(event) => this.submitForm(event)}>Update Site Info</div>
           </div>
         </form>
       </div>

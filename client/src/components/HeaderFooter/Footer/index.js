@@ -23,7 +23,7 @@ const Footer = ({ data }) => {
                   />
                   <div className="info">
                     <div>Location</div>
-                    <div>{data.siteInfo[0].address}</div>
+                    <div>{data.siteInfo[0].location}</div>
                   </div>
                 </div>
                 <div className="tag">
@@ -43,7 +43,7 @@ const Footer = ({ data }) => {
                   />
                   <div className="info">
                     <div>Twitter</div>
-                    <div>{data.siteInfo[0].hours}</div>
+                    <div>{data.siteInfo[0].social}</div>
                   </div>
                 </div>
                 <div className="tag">
