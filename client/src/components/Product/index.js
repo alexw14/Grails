@@ -24,15 +24,15 @@ class ProductDetail extends Component {
   showProduct = () => {
     if (this.props.products.productDetail) {
       return (
-        <div className="product_detail_wrapper">
-          <div className="left">
-            <div style={{ width: '500px' }}>
+        <div className="product-detail-wrapper">
+          <div className="left-section">
+            <div>
               <ProductImage
                 productDetail={this.props.products.productDetail}
               />
             </div>
           </div>
-          <div className="right">
+          <div className="right-section">
             <ProductInfo
               productDetail={this.props.products.productDetail}
               addToCart={(id) => this.handleAddToCart(id)}
@@ -48,9 +48,16 @@ class ProductDetail extends Component {
   }
 
   render() {
+    let title = this.props.products.productDetail ?
+      `${this.props.products.productDetail.brand.name} ${this.props.products.productDetail.name}`
+      : ''
     return (
       <div>
-        <PageTopSection title='Product Detail' />
+        {
+          this.props.products.productDetail ?
+            <PageTopSection title={title} />
+            : null
+        }
         <div className="container">
           {this.showProduct()}
         </div>

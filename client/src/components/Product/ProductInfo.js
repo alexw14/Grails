@@ -11,14 +11,13 @@ import {
 const ProductInfo = (props) => {
 
   const showProductTags = (detail) => (
-    <div className="product_tags">
+    <div className="product-tags">
       {
         detail.shipping ?
           <div className="tag">
             <div><FontAwesomeIcon icon={faTruck} /></div>
-            <div className="tag_text">
+            <div className="tag-text">
               <div>Free Shipping </div>
-              <div>And Return </div>
             </div>
           </div>
           : null
@@ -27,14 +26,14 @@ const ProductInfo = (props) => {
         detail.available ?
           <div className="tag">
             <div><FontAwesomeIcon icon={faCheck} /></div>
-            <div className="tag_text">
+            <div className="tag-text">
               <div>Available </div>
             </div>
           </div>
           :
           <div className="tag">
             <div><FontAwesomeIcon icon={faTimes} /></div>
-            <div className="tag_text">
+            <div className="tag-text">
               <div>Not Available </div>
               <div>Pre-Order Only </div>
             </div>
@@ -44,11 +43,11 @@ const ProductInfo = (props) => {
   )
 
   const showProductActions = (detail) => (
-    <div className="product_actions">
+    <div className="product-actions">
       <div className="price">$ {detail.price}</div>
       <div className="cart">
         <MyButton
-          type="add_to_cart_link"
+          type="add-to-cart-link"
           runAction={() => {
             props.addToCart(detail._id)
           }}
@@ -57,29 +56,18 @@ const ProductInfo = (props) => {
     </div>
   )
 
-  const showProductMoreInfo = (detail) => (
-    <div className="product_specifications">
-      <h2>Additional Information</h2>
-      <div>
-        <div className="item">
-          <strong>Colorway:</strong> {detail.colorway}
-        </div>
-        <div className="item">
-          <strong>Release Date:</strong> {detail.releaseDate}
-        </div>
-      </div>
-    </div>
-  )
-
   const detail = props.productDetail;
 
   return (
-    <div>
-      <h1>{detail.brand.name} {detail.name}</h1>
+    <div className="product-info-container">
+      <div className="product-info-brand-title">{detail.brand.name}</div>
+      <div className="product-info-title">{detail.name}</div>
       <p>{detail.description}</p>
+      <div><strong>Colorway:</strong> {detail.colorway}</div>
+      <div><strong>Release Date:</strong> {detail.releaseDate}</div>
+      <div><strong>Category:</strong> {detail.category.name}</div>
       {showProductTags(detail)}
       {showProductActions(detail)}
-      {showProductMoreInfo(detail)}
     </div>
   );
 };

@@ -61,15 +61,16 @@ class ProductImage extends Component {
   render() {
     const { productDetail } = this.props;
     return (
-      <div className="product_image_container">
-        <div className="main_pic">
+      <div className="product-image-container">
+        <div className="main-pic">
           <div
+            className="image"
             style={{ background: `url(${this.renderCardImage(productDetail.images)}) no-repeat` }}
             onClick={() => this.handleLightbox(0)}
           >
           </div>
         </div>
-        <div className="main_thumbs">
+        <div className="main-thumbs">
           {this.showThumbnailImages()}
         </div>
         {

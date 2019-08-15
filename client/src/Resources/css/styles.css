@@ -395,6 +395,103 @@ header .right-section .header-top, header .right-section .header-bottom {
   margin: 0 auto;
 }
 
+.no-result {
+  font-size: 40px;
+  margin: 0 auto;
+}
+
+.product-detail-wrapper {
+  display: flex;
+}
+
+.product-detail-wrapper .left-section {
+  width: 40%;
+}
+
+.product-detail-wrapper .right-section {
+  width: 60%;
+  padding-left: 40px;
+}
+
+.product-detail-wrapper .main-pic .image {
+  height: 500px;
+  width: 100%;
+  background-size: contain !important;
+  background-position: 50% !important;
+  cursor: pointer;  
+}
+
+.product-detail-wrapper .main-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-detail-wrapper .main-thumbs .thumb {
+  height: 200px;
+  width: 50%;
+  background-size: contain !important;
+  background-position: 50% !important;
+  cursor: pointer;  
+}
+
+.product-detail-wrapper .product-info-container {
+  margin-top: 40px;
+}
+
+.product-detail-wrapper .product-info-title, .product-detail-wrapper .product-info-brand-title {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.product-detail-wrapper .product-info-container .product-tags {
+  display: flex;
+  margin: 25px 0px;
+}
+
+.product-detail-wrapper .product-info-container .product-tags .tag {
+  display: flex;
+  padding-right: 10px;
+}
+
+.product-detail-wrapper .product-info-container .product-tags .tag svg {
+  color: #1e88e5;
+}
+
+.product-detail-wrapper .product-info-container .product-tags .tag div {  
+  padding-right: 10px;
+}
+
+.product-detail-wrapper .product-info-container p {
+  text-align: justify;
+}
+
+.product-detail-wrapper .product-info-container .product-actions {
+  padding: 20px 0px;
+  display: flex;
+}
+
+.product-detail-wrapper .product-info-container .product-actions .price {
+  font-size: 40px;
+}
+
+.product-detail-wrapper .product-info-container .product-actions .cart {
+  margin: auto 25px;
+}
+
+.add-to-cart-link {
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.add-to-cart-link svg {
+  margin-right: 10px;
+  color: #616161;
+}
+
+#lightboxBackdrop button:focus {
+  background-color: transparent;
+}
+
 label.MuiFormControlLabel-root {
   color: initial;
 }
