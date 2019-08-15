@@ -11,7 +11,7 @@ Grails is inspired by my love for sneakers and the popular GOAT app. It is curre
 <img src="https://i.imgur.com/Brzi6JE.png">
 <img src="https://i.imgur.com/LAd8hkf.png">
 <img src="https://i.imgur.com/F4Xfyyr.png">
-<img src="https://i.imgur.com/dpt1a6Y.png">
+<img src="https://i.imgur.com/BcbEESG.png">
 
 ## Technologies Used
 * React
