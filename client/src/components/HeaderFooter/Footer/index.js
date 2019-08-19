@@ -6,7 +6,6 @@ import {
   faDove,
   faEnvelopeSquare
 } from '@fortawesome/free-solid-svg-icons';
-import faMapMaker from '@fortawesome/fontawesome-free-solid/faDove'
 
 const Footer = ({ data }) => {
   return (
