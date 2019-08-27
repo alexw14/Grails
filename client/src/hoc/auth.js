@@ -35,8 +35,8 @@ export default function (ComposedClass, reload, adminRoute = null) {
     render() {
       if (this.state.isLoading) {
         return (
-          <div className="main_loader">
-            <CircularProgress style={{ color: '#2196F3' }} thickness={7} />
+          <div className="main-loader">
+            <CircularProgress style={{ color: '#FF8C00' }} thickness={6} />
           </div>
         )
       }
